@@ -127,8 +127,7 @@ def visualize_images(directory, class_names, num_img=5):
     ax[i].set_title(class_name)
     
 
-
-def show_rand_img(directory, class_names, num_img=5):
+def show_rand_img_test(directory, class_names, num_img=5):
   """
    Returns random images
 
@@ -140,11 +139,11 @@ def show_rand_img(directory, class_names, num_img=5):
   fig, ax = plt.subplots(1, num_img, figsize=(20, 20))
   for i in range(num_img):
     class_name = random.choice(class_names)
-    target_directory = directory + "/" + class_name
-    img_name_all = os.listdir(target_directory)
+    target_dir = directory + "/" + class_name
+    img_name_all = os.listdir(target_dir)
     img_name = random.sample(img_name_all, 1)
 
-    img = image.imread(directory + '/' + img_name[0])
+    img = image.imread(target_dir + '/' + img_name[0])
     ax[i].imshow(img)
     ax[i].set_title(class_name)
     ax[i].axis(False)
