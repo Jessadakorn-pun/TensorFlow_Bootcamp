@@ -140,8 +140,8 @@ def show_rand_img(directory, class_names, num_img=5):
   fig, ax = plt.subplots(1, num_img, figsize=(20, 20))
   for i in range(num_img):
     class_name = random.choice(class_names)
-    directory = directory + "/" + class_name
-    img_name_all = os.listdir(directory)
+    target_directory = directory + "/" + class_name
+    img_name_all = os.listdir(target_directory)
     img_name = random.sample(img_name_all, 1)
 
     img = image.imread(directory + '/' + img_name[0])
