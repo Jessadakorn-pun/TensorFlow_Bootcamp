@@ -109,22 +109,22 @@ def visualize_images(directory, class_names, num_img=5):
     test_data (list): list of classes label
     num_img (int): number of images to be visualize
   """ 
-## random target class name
-class_name = random.choice(class_names)
-img_dir = directory + '/' + class_name
-## list all of image's name in target directory
-all_img_name = os.listdir(img_dir)
-## random num_img name
-img_names = random.sample(all_img_name, num_img)
-
-## visualize the images
-fig, ax = plt.subplots(figsize=(20, 20))
-for index, img_name in enumerate(img_names):
-  ## read in image
-  img = image.imread(img_dir + '/' + img_name)
-  ax[index].imshow(img)
-  ax[index].axis(False)
-  ax[index].set_title(class_name)
+  ## random target class name
+  class_name = random.choice(class_names)
+  img_dir = directory + '/' + class_name
+  ## list all of image's name in target directory
+  all_img_name = os.listdir(img_dir)
+  ## random num_img name
+  img_names = random.sample(all_img_name, num_img)
+  
+  ## visualize the images
+  fig, ax = plt.subplots(figsize=(20, 20))
+  for index, img_name in enumerate(img_names):
+    ## read in image
+    img = image.imread(img_dir + '/' + img_name)
+    ax[index].imshow(img)
+    ax[index].axis(False)
+    ax[index].set_title(class_name)
 
 
 def show_rand_img(directory, class_names, num_img=5):
