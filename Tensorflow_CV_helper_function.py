@@ -92,7 +92,7 @@ def evaluate_model(model, test_data, categorical=True):
     prediction_lebel = prediction.round()
 
   ## ploting confusion matrix
-  cm = metics.confusion_matrix(test_data.labels, prediction_lebel)
+  cm = metrics.confusion_matrix(test_data.labels, prediction_lebel)
   fig = metrics.ConfusionMatrixDisplay(cm)
   fig.plot()
 
@@ -168,7 +168,7 @@ def load_and_prep_image(filename, img_shape=224, scale=True):
   img = tf.image.resize(img, [img_shape, img_shape])
 
   if scale:
-    return img = img / 255.0
+    return img / 255.0
   else:
     return img
 
