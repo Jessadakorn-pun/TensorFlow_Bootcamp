@@ -118,13 +118,13 @@ def visualize_images(directory, class_names, num_img=5):
   img_names = random.sample(all_img_name, num_img)
   
   ## visualize the images
-  fig, ax = plt.subplots(figsize=(20, 20))
-  for index, img_name in enumerate(img_names):
+  fig, ax = plt.subplots(1, num_img, figsize=(20, 20))
+  for i, img_name in enumerate(img_names):
     ## read in image
     img = image.imread(img_dir + '/' + img_name)
-    ax[index].imshow(img)
-    ax[index].axis(False)
-    ax[index].set_title(class_name)
+    ax[i].imshow(img)
+    ax[i].axis(False)
+    ax[i].set_title(class_name)
 
 
 def show_rand_img(directory, class_names, num_img=5):
