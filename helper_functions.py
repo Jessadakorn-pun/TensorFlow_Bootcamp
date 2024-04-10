@@ -57,16 +57,16 @@ def plot_loss_curves(history):
   epoch = range(len(history.history['loss']))
 
   ## ploting loss curve
-  fig, ax = plt.subplots(1, 2, fig_size=(20, 5))
-  ax[0].plot(epoch, loss, lebel='Training Loss')
-  ax[0].plot(epoch, val_loss, lebel='Validation Loss')
+  fig, ax = plt.subplots(1, 2, figsize=(20, 5))
+  ax[0].plot(epoch, loss, label='Training Loss')
+  ax[0].plot(epoch, val_loss, label='Validation Loss')
   ax[0].set_title('Loss Curve')
   ax[0].set_xlabel('Epoch')
   ax[0].set_ylabel('Loss')
   ax[0].legend()
 
-  ax[1].plot(epoch, acc, lebel='Training Loss')
-  ax[1].plot(epoch, val_acc, lebel='Validation Loss')
+  ax[1].plot(epoch, acc, label='Training Loss')
+  ax[1].plot(epoch, val_acc, label='Validation Loss')
   ax[1].set_title('Loss Curve')
   ax[1].set_xlabel('Epoch')
   ax[1].set_ylabel('Accuracy')
