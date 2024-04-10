@@ -67,7 +67,7 @@ def plot_loss_curves(history):
 
   ax[1].plot(epoch, acc, label='Training Loss')
   ax[1].plot(epoch, val_acc, label='Validation Loss')
-  ax[1].set_title('Loss Curve')
+  ax[1].set_title('Accuracy Curve')
   ax[1].set_xlabel('Epoch')
   ax[1].set_ylabel('Accuracy')
   ax[1].legend()
