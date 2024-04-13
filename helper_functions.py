@@ -212,3 +212,43 @@ def create_tensorboard_callback(dir_name, experiment_name):
   )
   print(f"Saving TensorBoard log files to: {log_dir}")
   return tensorboard_callback
+
+
+## Create function for comapre feature extraction and fine tune loss curve
+def compare_loss(org_hist, new_hist, initial_epochs=5):
+  """
+  Compare two TensorFlow history object
+  """
+  ## Get the original history messure ment
+  org_acc = org_hist.history['accuracy']
+  org_val_acc = org_hist.history['val_accuracy']
+
+  org_loss = org_hist.history['loss']
+  org_val_loss = org_hist.history['val_loss']
+
+  ## Get the new hisrory object
+  total_acc = org_acc + new_hist.history['accuracy']
+  total_val_acc = org_val_acc + new_hist.history['val_accuracy']
+
+  total_loss = org_loss + new_hist.history['loss']
+  total_val_loss = org_val_loss + new_hist.history['val_loss']
+
+  ## plotting loss curve
+  fig, ax = plt.subplots(1, 2, figsize=(20, 5))
+
+  ## loss curve
+  ax[0].plot(total_loss, label='Training Loss')
+  ax[0].plot(total_val_loss, label='Validation Loss')
+  ax[0].plot([initial_epochs-1, initial_epochs-1], plt.ylim(), label='Start Fine-tuning')
+  ax[0].set_title('Loss Curve')
+  ax[0].set_xlabel('Epoch')
+  ax[0].set_ylabel('Loss')
+  ax[0].legend()
+
+  ax[1].plot(total_acc, label='Training Accuracy')
+  ax[1].plot(total_val_acc, label='Validation Accuracy')
+  ax[1].plot([initial_epochs-1, initial_epochs-1], plt.ylim(), label='Start Fine-tuning')
+  ax[1].set_title('Accuracy Curve')
+  ax[1].set_xlabel('Epoch')
+  ax[1].set_ylabel('Accuracy')
+  ax[1].legend()
